@@ -43,18 +43,21 @@ const translate = (query: string) => {
   });
 };
 
-const replace = () => {
-
-};
+interface configInterface {
+  zhCNPath:string;
+  enUSPath:string;
+  replaceContent:string;
+}
 
 export function activate(context: vscode.ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   console.log('Congratulations, your extension "i18n-for-jt" is now active!');
-
-  const config = {
-    zhCNPath: "\\src\\locales\\zh_CN.json",
-    enUSPath: "\\src\\locales\\en_US.json",
-    replaceContent: "{intl.get('$1').d('$2')}",
+  
+  // 获取用户自定义config
+  const config: configInterface = vscode.workspace.getConfiguration().get('i18n-for-jt.config') || {
+    "zhCNPath": "\\src\\locales\\zh_CN.json",
+    "enUSPath": "\\src\\locales\\en_US.json",
+    "replaceContent": "{intl.get('$1').d('$2')}"
   };
 
   let disposable = vscode.commands.registerCommand(
