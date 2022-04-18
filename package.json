@@ -21,7 +21,21 @@
         "mac": "cmd+shift+t",
         "when": "editorHasSelection"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "i18n-for-jt",
+      "properties": {
+        "i18n-for-jt.config": {
+          "type": "object",
+          "default": {
+            "zhCNPath": "\\src\\locales\\zh_CN.json",
+            "enUSPath": "\\src\\locales\\en_US.json",
+            "replaceContent": "{intl.get('$1').d('$2')}"
+          },
+          "description": "传入一个对象，zhCNPath:中文语言包路径;enUSPath:英文语言包路径(windos系统路径分隔使用'\\');replaceContent:国际化插件需要的标识($1:语言包中的key,$2:可选，中文含义)。详细介绍可以看readme"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -44,5 +58,8 @@
     "md5": "^2.3.0",
     "mocha": "^9.2.2",
     "typescript": "^4.5.5"
-  }
+  },
+  "dependencies": {},
+  "repository": "https://github.com/Mr-Nobody-li/i18n-for-jt",
+  "publisher": "MrNobody"
 }

@@ -1,10 +1,16 @@
 # i18n-for-jt README
 
-This is the README for your extension "i18n-for-jt". After writing up a brief description, we recommend including the following sections.
+配置国际化的插件
 
-## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## 前提
+
+此插件默认支持`react` + `react-intl-universal`作为技术栈及国际化解决方案
+
+当然如果你使用的是其他框架或者国际化插件，在插件内部也可以自定义语言包路径、国际化格式等
+
+
+
 
 For example if there is an image subfolder under your extension project workspace:
 

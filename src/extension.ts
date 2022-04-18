@@ -64,6 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
       const editor = vscode.window.activeTextEditor;
       const rootPath = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
       if (!editor || !rootPath) {
+        vscode.window.showInformationMessage("找不到editor或者rootpath");
         return;
       }
 
