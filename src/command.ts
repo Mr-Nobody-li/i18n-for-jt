@@ -14,6 +14,7 @@ let ctx: vscode.ExtensionContext;
 let config: configInterface;
 
 const generate = (path: string, key: string, value: string) => {
+  // TODO:需要判断指定目录下是否有这个文件 如果没有的话需要先创建一个
   fs.readFile(path, "utf-8", (err: Error, json: string) => {
     err && vscode.window.showInformationMessage(`读取${path}失败`);
     const newJson = { ...JSON.parse(json), ...{ [key]: value } };
@@ -75,7 +76,7 @@ const translate = vscode.commands.registerCommand(
         path.match(/(?<=\/)[\w]+(?=\.)/) + JSON.stringify(Date.now());
 
       try {
-        // 替换选中的内容
+        // 替换选中的内容 TODO:需要判断$1 $2
         const replaceContent = config.replaceContent
           .replace("$1", intlName)
           .replace("$2", text.trim());
